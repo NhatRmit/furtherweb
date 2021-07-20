@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS & ES6</title>
+</head>
+<body>
+    <div id="container"></div>
+    <input type="text" id="msg">
+    <h2></h2>
+    <div id="demo"></div>
+
+    <h3>Minimum age: <input type="number" id="ageToCheck" value="18"></h3>
+    <button onclick="myFunction()">Try it</button>
+
+    <h3>All ages above minimum: <span id="demo1"></span></h3>
+</body>
+</html>
+
+<script>
+    //Basics
+    h = name => console.log(name);
+    h1 = () => console.log("Welcome to the show!");
+    add = (a,b) => a+b
+    pls = (a,b) => {
+        a++;
+        b++;
+        return a+b;
+    }
+
+    h1();
+    h("Nhat");
+    console.log(add(2,2));
+    console.log(pls(2,2));
+
+    //Objects
+    var Students ={
+        name: "Nhat",
+        age: 21,
+        greet(){
+            console.log("Welcome!")
+        }
+    }
+    Students.greet();
+
+
+    //Array List
+    let cars = ["BMW", "Aston Martin", "Vinfast"];
+
+    console.log(cars);
+    console.log(cars[0]);
+
+    for (let i = 0; i<cars.length; i++){
+        console.log(cars[i]);
+    }
+
+    // JS DOM
+    let c = document.querySelector("#container");
+    c.innerHTML = "<h1>Welcome to the show!</h1>";
+
+    let msg = document.getElementById("msg");
+    msg.value = "<h1>My name is Nhat</h1>"
+
+    //no need to create element in the html
+    const para = document.createElement('p');
+    para.textContent = "Today is the best day to review"
+    c.appendChild(para);
+
+    //need to create element first
+    const text = document.createTextNode("Today is so lazy!")
+    const textpara = document.querySelector('h2');
+    textpara.appendChild(text);
+
+    let object1 = {name: "Nhat"};
+    let object2 = {age: 21};
+
+    obj = Object.assign({},object1,object2);
+    console.log(obj);
+
+    //string literals
+    hello = (name, age) => `Welcome ${name}, ${age} years old, to the show!`;
+
+    console.log(hello("Nhat", 21));
+    
+    //descontructure assignment
+    var a = 1, b = "test";
+
+    //convert to array
+    var arr = [a,b]; 
+    console.log(arr);
+    
+    //convert to object
+    var o = {a,b};
+    console.log(o);
+
+    var students = [
+        {name: "Nhat", age:21},
+        {name: "Thong", age:22}        
+    ]
+
+    students.forEach(person => {console.log(person.name)});
+
+
+    //push & pop
+    var stuff = ['car', 'phone', 'clothes'];
+    stuff.push('book');
+    stuff.push('chair')
+    console.log(stuff);
+
+    console.log(stuff.pop());// get the lasted value that pushed
+    console.log(stuff);
+
+    //map and filter
+    var b = ["choco", "latte"];
+    m = b.map(i => "new "+i);
+    console.log(m);
+
+    var person_list =[
+        {fname: "Nhat", lname: "Nguyen"},
+        {fname: "Nhat", lname: "Noah"},
+        {fname: "Nhat", lname: "Mustang"}
+    ];
+
+    getFullName = (item, index) => {
+        var fullname = [item.fname,item.lname].join(" ");
+        return fullname;
+    }
+
+    document.getElementById("demo").innerHTML = person_list.map(getFullName);
+
+    var arr = ["car", "phone", "cat"];
+    f = arr.filter(i => i.startsWith('c'));
+    console.log(f);
+
+    let e = ['carnation', 'rose', 'daisy'];
+    let f1 = e.filter(
+        (flower, i) => {return flower!='carnation'}
+    )
+
+    console.log(e);
+    console.log(f1);
+
+    //check ages
+    var ages = [32, 33, 12, 40];
+    checkAdult = (age) => age >= document.getElementById("ageToCheck").value;
+
+    myFunction = () => document.getElementById("demo1").innerHTML = ages.filter(checkAdult);
+
+    //splice
+    var x = ["car", "phone", "cat"];
+    y = x.splice(0,2);
+    console.log(y);
+    console.log(x);
+
+
+    //at pos 2, remove 2 items
+    var fruits =["banana", "orange", "apple", "mango", "kiwi"];
+    fruits.splice(2,2);
+
+    //at pos 2, add new items, then remove 1
+    var fruits_1 =["banana", "orange", "apple", "mango", "kiwi"];
+    fruits.splice(2,1, "Lemon","Kiwi");
+
+    //call, apply, bind
+    var stud = {
+        name:"Mustang",
+        age: 20,
+        showInfo: function(){
+            console.log(`This is ${this.name}, ${this.age} years old`);
+        }
+
+    }
+
+    //call the method
+    stud.showInfo();
+
+    //call method with new object
+    stud.showInfo.call({name: "Dodge", age:10});
+    
+    //bind will return a new function, not run function
+    var newfunc = stud.showInfo.bind({name: 'Aston', age: 15});
+
+    newfunc();
+
+</script>
