@@ -1,0 +1,28 @@
+.App-jumbotron {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    background-color: var(--bs-light);
+    border-radius: .3rem;  
+}  
+
+.App-header{
+    text-align: center;
+}
+
+.App-Btncenter {
+    display: flex;
+    justify-content: center;
+}
+
+#form {
+    margin: 0 20vw;
+}
+
+
+span {
+    font-size: 20px;
+    font-weight: 600;
+    color:red;
+    margin: 0 0.75vw;
+}
+
