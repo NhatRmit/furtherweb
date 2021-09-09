@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 const StudentList = () => {
-    const endPoint = 'http://localhost:4000/students'
+    // const endPoint = 'http://localhost:4000/students'
     const [data, setData] = useState([])
     const [id, setId] = useState('')
     const [name, setName] = useState('')
