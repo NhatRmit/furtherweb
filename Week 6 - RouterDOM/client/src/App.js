@@ -7,12 +7,12 @@ import Account from './components/Account'
 import Navbar from './components/Navbar'
 import QueryParamsDemo from './components/QueryParamsDemo'
 
-
 function App() {
   return (
     <div className="App">
       <Router>
         <Navbar />
+        
         <Switch>
           
           <Route path='/dog'>
@@ -30,7 +30,7 @@ function App() {
         </Switch>
       </Router>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
