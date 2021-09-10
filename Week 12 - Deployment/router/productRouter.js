@@ -10,19 +10,19 @@ router.get('/products', function(req, res){
        res.send(products)
    })
 })
- 
+
 router.post('/products', function(req, res){
    Product.create(req.body, function(err, product){
        res.send(product)
    })
 })
- 
+
 router.delete('/products/:id', function(req, res){
    Product.deleteOne({_id: req.params.id}, function(err, result){
        res.send(result)
    })
 })
- 
+
 router.put('/products', function(req, res){
    Product.findOneAndUpdate({_id: req.body.id},
     {name: req.body.name, price: req.body.price}, 
@@ -31,7 +31,6 @@ router.put('/products', function(req, res){
        res.send(result)
    })
 })
- 
  
 router.get('/products/search', async function(req, res){
 //    Product.find({name: req.params.keyword}, function(err, result){
@@ -55,6 +54,5 @@ router.get('/products/search', async function(req, res){
     res.send({Size: number, Items: result})
 
 })
- 
 
 module.exports = router

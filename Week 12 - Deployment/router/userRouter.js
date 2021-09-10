@@ -10,7 +10,6 @@ router.get('/users', function(req, res){
 })
 
 router.post("/register", async (req, res) => {
-
     // Our register logic starts here
     try {
       // Get user input
