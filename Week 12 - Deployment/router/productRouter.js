@@ -5,6 +5,7 @@ const Product = require("../model/product.js")
  
 //create a model Product ==> Products (database collection)
 //Teacher => teachers , Course => courses
+
 router.get('/products', function(req, res){
    Product.find({}, function(err, products){
        res.send(products)
@@ -31,18 +32,18 @@ router.put('/products', function(req, res){
        res.send(result)
    })
 })
- 
+
 router.get('/products/search', async function(req, res){
-//    Product.find({name: req.params.keyword}, function(err, result){
-//        res.send(result)
-//    })
+    //    Product.find({name: req.params.keyword}, function(err, result){
+    //        res.send(result)
+    //    })
     const keyword = req.query.keyword
     const pageSize = parseInt(req.query.pageSize)
     const pageNo =  parseInt(req.query.pageNo)
 
     //count number of documents:
     const number = await Product.countDocuments({name: {$regex: '.*' + keyword + '.*'}});
-    const skipNo =pageSize*(pageNo-1)
+    const skipNo = pageSize*(pageNo-1)
 
     // Product.find({name: {$regex: '.*' + keyword + '.*'}}, 
     // function(err, result){

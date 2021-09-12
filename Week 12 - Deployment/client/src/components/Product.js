@@ -129,23 +129,23 @@ export default function ProductList() {
             </div>         
           </div>
 
-        <table class="table table-striped">
+      <table class="table table-striped">
         <thead>
-        <tr>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>      
-        {data.map(a => (  
           <tr>
-              <td>{a.name}</td>
-              <td>{a.price}</td>
-              <td><button className="btn btn-warning" onClick={()=> deleteProduct(a._id)}>Delete</button>
-              <button className="btn btn-warning" onClick={()=> editProduct(a._id, a.name)}>Edit</button></td>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Action</th>
           </tr>
-        ))}
+        </thead>
+        <tbody>      
+          {data.map(a => (  
+            <tr>
+                <td>{a.name}</td>
+                <td>{a.price}</td>
+                <td><button className="btn btn-warning" onClick={()=> deleteProduct(a._id)}>Delete</button>
+                <button className="btn btn-warning" onClick={()=> editProduct(a._id, a.name)}>Edit</button></td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
