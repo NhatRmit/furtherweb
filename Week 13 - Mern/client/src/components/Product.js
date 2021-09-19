@@ -68,7 +68,6 @@ const ProductList = () => {
         const pageSize = document.querySelector('#pageSize').value
         const pageNo = document.querySelector('#pageNo').value
         fetch(endPoint + "/search?keyword="+keyword+"&pageSize="+pageSize+"&pageNo="+pageNo)
-        fetch(endPoint + "/search?keyword="+keyword+"&pageSize="+pageSize+"&pageNo="+pageNo)
             .then(res => res.json())
             .then(data => {populatePageNo(data.Size); setData(data.Items)})
     }
